@@ -23,41 +23,41 @@
 
 **step 5**: by Postman or others api test tools you can request to the address : http://localhost:58997/api/Otp/OtpLogin to request verification code
 sample request body :
-{
+`{
     "PhoneNumber" : "09124272246"
-}
+}`
 
 sample success response body : 
 
-{
+`{
     "isSuccess": true,
     "errorList": null,
     "result": {
         "code": "606626"
     }
-}
+}`
 
 **step 6**: regarding validate verification code which received from step 5 you can call the address http://localhost:58997/api/Otp/OtpVerify 
 sample request body : 
-{
+`{
     "PhoneNumber" : "09124272246",
     "VerificationCode":"606626"
-}
+}`
 
 sample success response body : 
 
-{
+`{
     "isSuccess": true,
     "errorList": null,
     "result": {
         "verificationCode": "606626",
         "isCorrect": true
     }
-}
+}`
 
 **step 7** : you can test OtpLogin login multiple time depend **MaximumActiveCodePerPhone** configuration variable in appsettings.json when maximum limit exceed the response like :
 
-{
+`{
     "isSuccess": false,
     "errorList": [
         {
@@ -66,7 +66,7 @@ sample success response body :
         }
     ],
     "result": null
-}
+}`
 
 ### 2- UnitTests and In-memory database 
 
@@ -75,4 +75,3 @@ the unit tests are exist in Arival.Tests project and UnitTests class
 the main tests which tests the flows are : 
 CreateOtpAndVerifyShouldSuccess()
 CreateOtpMaximumExceedShouldWork()
-
