@@ -1,0 +1,56 @@
+2023-11-13T07:49:50.5733576+01:00 8000001c-0001-ff00-b63f-84710c7967bb [INF] Executed DbCommand ("211"ms) [Parameters=["@__PhoneNumber_0='?', @__VerificationCode_1='?', @__Expiration_TotalSeconds_2='?' (DbType = Double)"], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"UserOtp\" AS u
+    WHERE u.\"PhoneNumber\" = @__PhoneNumber_0 AND u.\"Otp\" = @__VerificationCode_1 AND date_part('epoch', now() - u.\"CreatedTime\") < @__Expiration_TotalSeconds_2)" (0723d8ff)
+2023-11-13T08:07:31.5147776+01:00 8000001e-0001-ff00-b63f-84710c7967bb [INF] Request:
+Protocol: HTTP/1.1
+Method: POST
+Scheme: http
+PathBase: 
+Path: /api/Otp/OtpVerify
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Length: 73
+Content-Type: application/json
+Host: localhost:58997
+User-Agent: PostmanRuntime/7.34.0
+Postman-Token: [Redacted] (893de8da)
+2023-11-13T08:07:40.3255290+01:00 8000001e-0001-ff00-b63f-84710c7967bb [INF] Executed DbCommand ("149"ms) [Parameters=["@__PhoneNumber_0='?', @__VerificationCode_1='?', @__Expiration_TotalSeconds_2='?' (DbType = Double)"], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"UserOtp\" AS u
+    WHERE u.\"PhoneNumber\" = @__PhoneNumber_0 AND u.\"Otp\" = @__VerificationCode_1 AND date_part('epoch', now() - u.\"CreatedTime\") < @__Expiration_TotalSeconds_2)" (0723d8ff)
+2023-11-13T08:07:40.6008343+01:00 8000001e-0001-ff00-b63f-84710c7967bb [INF] Response:
+StatusCode: 200
+Content-Type: application/json; charset=utf-8 (999214c4)
+2023-11-13T08:13:38.5898068+01:00 8000000f-0004-f900-b63f-84710c7967bb [INF] Request:
+Protocol: HTTP/1.1
+Method: POST
+Scheme: http
+PathBase: 
+Path: /api/Otp/OtpVerify
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Length: 73
+Content-Type: application/json
+Host: localhost:58997
+User-Agent: PostmanRuntime/7.34.0
+Postman-Token: [Redacted] (893de8da)
+2023-11-13T08:13:46.8984990+01:00 8000000f-0004-f900-b63f-84710c7967bb [INF] RequestBody: "{
+    \"PhoneNumber\" : \"09124272246\",
+    \"VerificationCode\":\"151751\"
+}" (6d42d084)
+2023-11-13T08:13:51.8762789+01:00 8000000f-0004-f900-b63f-84710c7967bb [INF] Executed DbCommand ("112"ms) [Parameters=["@__PhoneNumber_0='?', @__VerificationCode_1='?', @__Expiration_TotalSeconds_2='?' (DbType = Double)"], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"UserOtp\" AS u
+    WHERE u.\"PhoneNumber\" = @__PhoneNumber_0 AND u.\"Otp\" = @__VerificationCode_1 AND date_part('epoch', now() - u.\"CreatedTime\") < @__Expiration_TotalSeconds_2)" (0723d8ff)
+2023-11-13T08:13:52.0799184+01:00 8000000f-0004-f900-b63f-84710c7967bb [INF] Response:
+StatusCode: 200
+Content-Type: application/json; charset=utf-8 (999214c4)
+2023-11-13T08:13:52.1016976+01:00 8000000f-0004-f900-b63f-84710c7967bb [INF] ResponseBody: "{\"isSuccess\":true,\"errorList\":null,\"totalCount\":0,\"result\":{\"verificationCode\":\"151751\",\"isCorrect\":false}}" (c7a8e6fd)
