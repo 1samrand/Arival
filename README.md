@@ -4,6 +4,7 @@
 ### 1- production mode and real database 
 
 **step 1** : the api are exist in the Arival.Api
+
 **step 2** : please connect database to your Postgres database in appsettings.json --> ArivalConnection
 
 **step 3** : you need have this table in your database with below script 
