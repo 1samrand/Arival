@@ -23,7 +23,7 @@ namespace Arival.Tests
             Assert.IsTrue(generatedOtp.Length == codeCount);
         }
         [TestMethod]
-        public void CreateOtpAndVerifyShouldSuccess()
+        public void CreateOtpAndVerifyShouldWorkSuccess()
         {
             string phoneNumber = "09124272246";
             var service = TestHelper.ServiceProvider.GetService<IUserOtpService>();
@@ -34,7 +34,7 @@ namespace Arival.Tests
             Assert.IsTrue(verifyOtpResponse.IsSuccess);
         }
         [TestMethod]
-        public void CreateOtpMaximumExceedShouldWork()
+        public void CreateOtpMaximumExceedShouldWorkSuccess()
         {
             var configurationService = TestHelper.ServiceProvider.GetService<IConfigurationService>();
             var otpService = TestHelper.ServiceProvider.GetService<IUserOtpService>();

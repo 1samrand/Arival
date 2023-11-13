@@ -54,3 +54,147 @@ Postman-Token: [Redacted] (893de8da)
 StatusCode: 200
 Content-Type: application/json; charset=utf-8 (999214c4)
 2023-11-13T08:13:52.1016976+01:00 8000000f-0004-f900-b63f-84710c7967bb [INF] ResponseBody: "{\"isSuccess\":true,\"errorList\":null,\"totalCount\":0,\"result\":{\"verificationCode\":\"151751\",\"isCorrect\":false}}" (c7a8e6fd)
+2023-11-13T21:55:32.0973755+01:00 80000012-0004-f900-b63f-84710c7967bb [INF] Request:
+Protocol: HTTP/1.1
+Method: POST
+Scheme: http
+PathBase: 
+Path: /api/Otp/OtpLogin
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Length: 39
+Content-Type: application/json
+Host: localhost:58997
+User-Agent: PostmanRuntime/7.35.0
+Postman-Token: [Redacted] (893de8da)
+2023-11-13T21:55:33.5920092+01:00 80000012-0004-f900-b63f-84710c7967bb [INF] RequestBody: "{
+    \"PhoneNumber\" : \"09124272246\"
+}" (6d42d084)
+2023-11-13T21:55:36.0867131+01:00 80000012-0004-f900-b63f-84710c7967bb [INF] Executed DbCommand ("109"ms) [Parameters=["@__PhoneNumber_0='?', @__Expiration_TotalSeconds_1='?' (DbType = Double)"], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM \"UserOtp\" AS u
+WHERE u.\"PhoneNumber\" = @__PhoneNumber_0 AND date_part('epoch', now() - u.\"CreatedTime\") < @__Expiration_TotalSeconds_1" (0723d8ff)
+2023-11-13T21:55:36.4031140+01:00 80000012-0004-f900-b63f-84710c7967bb [INF] Executed DbCommand ("15"ms) [Parameters=["@p0='?' (DbType = DateTime), @p1='?', @p2='?'"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"UserOtp\" (\"CreatedTime\", \"Otp\", \"PhoneNumber\")
+VALUES (@p0, @p1, @p2)
+RETURNING \"Id\";" (0723d8ff)
+2023-11-13T21:55:36.6392370+01:00 80000012-0004-f900-b63f-84710c7967bb [INF] Response:
+StatusCode: 200
+Content-Type: application/json; charset=utf-8 (999214c4)
+2023-11-13T21:55:36.6698009+01:00 80000012-0004-f900-b63f-84710c7967bb [INF] ResponseBody: "{\"isSuccess\":true,\"errorList\":null,\"totalCount\":0,\"result\":{\"code\":\"606626\"}}" (c7a8e6fd)
+2023-11-13T21:56:05.3680760+01:00 80000013-0004-f900-b63f-84710c7967bb [INF] Request:
+Protocol: HTTP/1.1
+Method: POST
+Scheme: http
+PathBase: 
+Path: /api/Otp/OtpVerify
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Length: 73
+Content-Type: application/json
+Host: localhost:58997
+User-Agent: PostmanRuntime/7.35.0
+Postman-Token: [Redacted] (893de8da)
+2023-11-13T21:56:05.3757515+01:00 80000013-0004-f900-b63f-84710c7967bb [INF] RequestBody: "{
+    \"PhoneNumber\" : \"09124272246\",
+    \"VerificationCode\":\"606626\"
+}" (6d42d084)
+2023-11-13T21:56:05.4629264+01:00 80000013-0004-f900-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=["@__PhoneNumber_0='?', @__VerificationCode_1='?', @__Expiration_TotalSeconds_2='?' (DbType = Double)"], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"UserOtp\" AS u
+    WHERE u.\"PhoneNumber\" = @__PhoneNumber_0 AND u.\"Otp\" = @__VerificationCode_1 AND date_part('epoch', now() - u.\"CreatedTime\") < @__Expiration_TotalSeconds_2)" (0723d8ff)
+2023-11-13T21:56:05.4761324+01:00 80000013-0004-f900-b63f-84710c7967bb [INF] Response:
+StatusCode: 200
+Content-Type: application/json; charset=utf-8 (999214c4)
+2023-11-13T21:56:05.4796439+01:00 80000013-0004-f900-b63f-84710c7967bb [INF] ResponseBody: "{\"isSuccess\":true,\"errorList\":null,\"totalCount\":0,\"result\":{\"verificationCode\":\"606626\",\"isCorrect\":true}}" (c7a8e6fd)
+2023-11-13T21:59:07.1417517+01:00 80000003-0006-fd00-b63f-84710c7967bb [INF] Request:
+Protocol: HTTP/1.1
+Method: POST
+Scheme: http
+PathBase: 
+Path: /api/Otp/OtpLogin
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Length: 39
+Content-Type: application/json
+Host: localhost:58997
+User-Agent: PostmanRuntime/7.35.0
+Postman-Token: [Redacted] (893de8da)
+2023-11-13T21:59:07.5928980+01:00 80000003-0006-fd00-b63f-84710c7967bb [INF] RequestBody: "{
+    \"PhoneNumber\" : \"09124272246\"
+}" (6d42d084)
+2023-11-13T21:59:09.9086071+01:00 80000003-0006-fd00-b63f-84710c7967bb [INF] Executed DbCommand ("108"ms) [Parameters=["@__PhoneNumber_0='?', @__Expiration_TotalSeconds_1='?' (DbType = Double)"], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM \"UserOtp\" AS u
+WHERE u.\"PhoneNumber\" = @__PhoneNumber_0 AND date_part('epoch', now() - u.\"CreatedTime\") < @__Expiration_TotalSeconds_1" (0723d8ff)
+2023-11-13T21:59:10.2615598+01:00 80000003-0006-fd00-b63f-84710c7967bb [INF] Executed DbCommand ("8"ms) [Parameters=["@p0='?' (DbType = DateTime), @p1='?', @p2='?'"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"UserOtp\" (\"CreatedTime\", \"Otp\", \"PhoneNumber\")
+VALUES (@p0, @p1, @p2)
+RETURNING \"Id\";" (0723d8ff)
+2023-11-13T21:59:10.4413082+01:00 80000003-0006-fd00-b63f-84710c7967bb [INF] Response:
+StatusCode: 200
+Content-Type: application/json; charset=utf-8 (999214c4)
+2023-11-13T21:59:10.4629766+01:00 80000003-0006-fd00-b63f-84710c7967bb [INF] ResponseBody: "{\"isSuccess\":true,\"errorList\":null,\"result\":{\"code\":\"562306\"}}" (c7a8e6fd)
+2023-11-13T21:59:14.0295104+01:00 80000004-0006-fd00-b63f-84710c7967bb [INF] Request:
+Protocol: HTTP/1.1
+Method: POST
+Scheme: http
+PathBase: 
+Path: /api/Otp/OtpLogin
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Length: 39
+Content-Type: application/json
+Host: localhost:58997
+User-Agent: PostmanRuntime/7.35.0
+Postman-Token: [Redacted] (893de8da)
+2023-11-13T21:59:14.0414080+01:00 80000004-0006-fd00-b63f-84710c7967bb [INF] RequestBody: "{
+    \"PhoneNumber\" : \"09124272246\"
+}" (6d42d084)
+2023-11-13T21:59:14.1079798+01:00 80000004-0006-fd00-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=["@__PhoneNumber_0='?', @__Expiration_TotalSeconds_1='?' (DbType = Double)"], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM \"UserOtp\" AS u
+WHERE u.\"PhoneNumber\" = @__PhoneNumber_0 AND date_part('epoch', now() - u.\"CreatedTime\") < @__Expiration_TotalSeconds_1" (0723d8ff)
+2023-11-13T21:59:14.1212026+01:00 80000004-0006-fd00-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=["@p0='?' (DbType = DateTime), @p1='?', @p2='?'"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"UserOtp\" (\"CreatedTime\", \"Otp\", \"PhoneNumber\")
+VALUES (@p0, @p1, @p2)
+RETURNING \"Id\";" (0723d8ff)
+2023-11-13T21:59:14.1245268+01:00 80000004-0006-fd00-b63f-84710c7967bb [INF] Response:
+StatusCode: 200
+Content-Type: application/json; charset=utf-8 (999214c4)
+2023-11-13T21:59:14.1273143+01:00 80000004-0006-fd00-b63f-84710c7967bb [INF] ResponseBody: "{\"isSuccess\":true,\"errorList\":null,\"result\":{\"code\":\"843461\"}}" (c7a8e6fd)
+2023-11-13T21:59:15.3107889+01:00 80000005-0006-fd00-b63f-84710c7967bb [INF] Request:
+Protocol: HTTP/1.1
+Method: POST
+Scheme: http
+PathBase: 
+Path: /api/Otp/OtpLogin
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Length: 39
+Content-Type: application/json
+Host: localhost:58997
+User-Agent: PostmanRuntime/7.35.0
+Postman-Token: [Redacted] (893de8da)
+2023-11-13T21:59:15.3219979+01:00 80000005-0006-fd00-b63f-84710c7967bb [INF] RequestBody: "{
+    \"PhoneNumber\" : \"09124272246\"
+}" (6d42d084)
+2023-11-13T21:59:15.3462996+01:00 80000005-0006-fd00-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=["@__PhoneNumber_0='?', @__Expiration_TotalSeconds_1='?' (DbType = Double)"], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM \"UserOtp\" AS u
+WHERE u.\"PhoneNumber\" = @__PhoneNumber_0 AND date_part('epoch', now() - u.\"CreatedTime\") < @__Expiration_TotalSeconds_1" (0723d8ff)
+2023-11-13T21:59:15.4043552+01:00 80000005-0006-fd00-b63f-84710c7967bb [INF] Response:
+StatusCode: 400
+Content-Type: application/json; charset=utf-8 (999214c4)
+2023-11-13T21:59:15.4082237+01:00 80000005-0006-fd00-b63f-84710c7967bb [INF] ResponseBody: "{\"isSuccess\":false,\"errorList\":[{\"errorCode\":2,\"errorDescription\":\"The number of active codes exceeds the limit : 2\"}],\"result\":null}" (c7a8e6fd)

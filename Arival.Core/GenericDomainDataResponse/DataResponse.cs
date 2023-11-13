@@ -15,7 +15,6 @@ namespace Arival.Core.GenericDataResponse
         }
 
         public List<ResponseError> ErrorList { get; set; }
-        public int TotalCount { get; set; }
         public TResult Result { get; set; }
     }
 }
