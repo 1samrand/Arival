@@ -72,6 +72,8 @@ sample success response body :
 
 **step 7** : by **CodeExpirationTimestamp** configuration variable in appsettings.json you can change expiration time for verification code
 
+logs for https request / response and database queries are exist in Log folder
+
 ### 2- UnitTests and In-memory database 
 
 the unit tests are exist in Arival.Tests project and UnitTests class
