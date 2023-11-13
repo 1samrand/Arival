@@ -18,6 +18,7 @@
     CONSTRAINT "UserOtp_pkey" PRIMARY KEY ("Id")
 )
 `
+
 **step 4**: if you execute project Arival.Api it runs on the address : http://localhost:58997
 
 **step 5**: by Postman or others api test tools you can request to the address : http://localhost:58997/api/Otp/OtpLogin to request verification code
