@@ -23,6 +23,7 @@
 
 **step 5**: by Postman or others api test tools you can request to the address : http://localhost:58997/api/Otp/OtpLogin to request verification code
 sample request body :
+
 `{
     "PhoneNumber" : "09124272246"
 }`
@@ -39,6 +40,7 @@ sample success response body :
 
 **step 6**: regarding validate verification code which received from step 5 you can call the address http://localhost:58997/api/Otp/OtpVerify 
 sample request body : 
+
 `{
     "PhoneNumber" : "09124272246",
     "VerificationCode":"606626"
