@@ -8,7 +8,7 @@
 
 **step 3** : you need have this table in your database with below script 
 
-CREATE TABLE IF NOT EXISTS public."UserOtp"
+`CREATE TABLE IF NOT EXISTS public."UserOtp"
 (
     "Id" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     "Otp" character varying(255) COLLATE pg_catalog."default",
@@ -16,10 +16,10 @@ CREATE TABLE IF NOT EXISTS public."UserOtp"
     "PhoneNumber" character varying(20) COLLATE pg_catalog."default",
     CONSTRAINT "UserOtp_pkey" PRIMARY KEY ("Id")
 )
+`
+**step 4**: if you execute project Arival.Api it runs on the address : http://localhost:58997
 
-**step 4 **: if you execute project Arival.Api it runs on the address : http://localhost:58997
-
-**step 5 **: by Postman or others api test tools you can request to the address : http://localhost:58997/api/Otp/OtpLogin to request verification code
+**step 5**: by Postman or others api test tools you can request to the address : http://localhost:58997/api/Otp/OtpLogin to request verification code
 sample request body :
 {
     "PhoneNumber" : "09124272246"
@@ -35,7 +35,7 @@ sample success response body :
     }
 }
 
-**step 6 **: regarding validate verification code which received from step 5 you can call the address http://localhost:58997/api/Otp/OtpVerify 
+**step 6**: regarding validate verification code which received from step 5 you can call the address http://localhost:58997/api/Otp/OtpVerify 
 sample request body : 
 {
     "PhoneNumber" : "09124272246",
