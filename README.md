@@ -70,12 +70,12 @@ sample success response body :
     "result": null
 }`
 
-**step 7** : by CodeExpirationTimestamp configuration variable in appsettings.json you can change expiration time for verification code
+**step 7** : by **CodeExpirationTimestamp** configuration variable in appsettings.json you can change expiration time for verification code
 
 ### 2- UnitTests and In-memory database 
 
 the unit tests are exist in Arival.Tests project and UnitTests class
 
 the main tests which tests the flows are : 
-CreateOtpAndVerifyShouldSuccess()
-CreateOtpMaximumExceedShouldWork()
+CreateOtpAndVerifyShouldWorkSuccess()
+CreateOtpMaximumExceedShouldWorkSuccess()
